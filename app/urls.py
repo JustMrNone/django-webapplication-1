@@ -40,5 +40,6 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('blog/<int:post_id>/', views.post_detail_view, name='blog'),
     path('update-profile/', update_profile, name='update_profile'),
+    path('change_password', views.change_password, name="change_password")
 
 ]

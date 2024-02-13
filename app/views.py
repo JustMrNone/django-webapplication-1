@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import Profile
 from .forms import ProfileUpdateForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 def index(request):
     return render(request, 'index.html')
 
@@ -161,8 +163,25 @@ def update_profile(request):
         form = ProfileUpdateForm(instance=request.user.profile)
     
     return render(request, 'update_profile.html', {'form': form})
-#function for register 
 
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Update the user's session to reflect the password change
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('profile')  # Redirect to the user's profile page after password change
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {'form': form})
+
+#function for register 
 def register(request):
     try:
         if request.method == 'POST':
