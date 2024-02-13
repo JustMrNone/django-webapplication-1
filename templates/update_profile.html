@@ -12,12 +12,12 @@
         
         <div class="field-wrapper">
             <label for="id_bio">Bio:</label>
-            {{ form.bio }}
+            <textarea id="id_bio" name="bio">{{ form.instance.bio }}</textarea>
         </div>
         
         <div class="field-wrapper">
             <label for="id_image">Profile Picture:</label>
-            {{ form.image }}
+            <input type="file" id="id_image" name="image">
             <!-- Display the current image if it exists -->
             {% if form.instance.image %}
                 <img src="{{ form.instance.image.url }}" alt="Current Profile Picture" width="100">
@@ -33,12 +33,3 @@
     
 </body>
 
-<script>
-    document.getElementById('delete_image_btn').addEventListener('click', function() {
-        // Toggle the value of the delete_image input
-        var deleteInput = document.getElementById('delete_image_input');
-        if (deleteInput) {
-            deleteInput.value = deleteInput.value === '1' ? '0' : '1';
-        }
-    });
-</script>
