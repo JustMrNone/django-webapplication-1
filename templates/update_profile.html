@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+</head>
+<body>
+    <h1>Update Profile</h1>
+    <form method="post" enctype="multipart/form-data" class="profile-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="field-wrapper">
+            <label for="id_new_bio">Bio:</label>
+            {{ form.bio }}
+        </div>
+        <div class="field-wrapper">
+            <label for="id_new_image">Profile Picture:</label>
+            {{ form.image }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    </form>
+</body>
