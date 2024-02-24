@@ -158,12 +158,15 @@ def update_profile(request):
         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your profile has been updated successfully.')
             return redirect('profile')  # Redirect to the profile page after successful update
+        else:
+            messages.error(request, 'There was an error updating your profile.')
+            print(form.errors)  # Print form errors for debugging
     else:
         form = ProfileUpdateForm(instance=request.user.profile)
     
     return render(request, 'update_profile.html', {'form': form})
-
 
 @login_required
 def change_password(request):

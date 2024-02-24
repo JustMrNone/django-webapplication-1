@@ -6,18 +6,18 @@
     <title>Update Profile</title>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data" class="profile-form" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class="profile-form">
         {% csrf_token %}
         {{ form.non_field_errors }}
         
         <div class="field-wrapper">
             <label for="id_bio">Bio:</label>
-            <textarea id="id_bio" name="bio">{{ form.instance.bio }}</textarea>
+            {{ form.bio }}
         </div>
         
         <div class="field-wrapper">
             <label for="id_image">Profile Picture:</label>
-            <input type="file" id="id_image" name="image">
+            {{ form.image }}
             <!-- Display the current image if it exists -->
             {% if form.instance.image %}
                 <img src="{{ form.instance.image.url }}" alt="Current Profile Picture" width="100">
@@ -28,8 +28,5 @@
         
         <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
-    
-    
-    
 </body>
-
+</html>
