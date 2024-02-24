@@ -4,29 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your custom CSS if any -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .profile-form {
+            background-color: #fff; /* White background for the form */
+            border-radius: 10px; /* Rounded corners */
+            padding: 30px; /* Add some padding */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+    </style>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data" class="profile-form">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        
-        <div class="field-wrapper">
-            <label for="id_bio">Bio:</label>
-            {{ form.bio }}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" enctype="multipart/form-data" class="profile-form">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                    <div class="form-group">
+                        <label for="id_bio">Bio:</label>
+                        {{ form.bio }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="id_image">Profile Picture:</label>
+                        {{ form.image }}
+                        <!-- Display the current image if it exists -->
+                        {% if form.instance.image %}
+                            <img src="{{ form.instance.image.url }}" alt="Current Profile Picture" class="img-thumbnail" style="max-width: 100px;">
+                            <div class="form-check mt-2">
+                                <input type="checkbox" class="form-check-input" id="id_delete_image" name="delete_image">
+                                <label class="form-check-label" for="id_delete_image">Delete Profile Picture</label>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                </form>
+            </div>
         </div>
-        
-        <div class="field-wrapper">
-            <label for="id_image">Profile Picture:</label>
-            {{ form.image }}
-            <!-- Display the current image if it exists -->
-            {% if form.instance.image %}
-                <img src="{{ form.instance.image.url }}" alt="Current Profile Picture" width="100">
-                <input type="checkbox" id="id_delete_image" name="delete_image">
-                <label for="id_delete_image">Delete Profile Picture</label>
-            {% endif %}
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-    </form>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
