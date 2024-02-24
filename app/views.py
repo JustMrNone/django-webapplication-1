@@ -25,6 +25,11 @@ def projects(request):
 def blog(request): 
     return render(request, 'blog.html')
 
+def loremgenerator(request): 
+    return render(request, 'loremgenerator.html') 
+
+def paint(request): 
+    return render(request, 'paint.html')
 def contact(request): 
     return render(request, 'contact.html')
 
