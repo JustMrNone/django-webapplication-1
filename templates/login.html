@@ -41,14 +41,14 @@
             {% endif%}
             {% endfor %}
             {% endif %}
-            <p class="color-contrast-medium">
+            <p style="color: black;">
 
               If you haven't created an account yet <a href="signup" style="text-decoration: none;">Signup</a> now.
             </p>          </div>
           <!-- <legend style="text-align: center;" class="form-legend">Sign Up</legend> -->
 
           <div class="rezform-control">
-            <label for="username">Username</label>
+            <label for="username">Username:</label>
             <input type="text" name="username" id="rezemail" placeholder="Enter Username">
             <input type="hidden" name="next" value="{{ next }}">
             <!-- {% for message in messages %} -->
@@ -57,7 +57,7 @@
           </div>
 
           <div class="rezform-control">
-            <label for="password">Password</label>
+            <label for="password">Password:</label>
             <input type="password" name="password" id="rezpassword" placeholder="Enter password">
             {% for message in messages %}
             {% if 'error' in message.tags %}
@@ -69,7 +69,7 @@
           </div>
 
           <fieldset class="margin-bottom-md">                                 
-            <label for="checkbox-2">Forgot your password? <a style="text-decoration: none;" href="forgetpass">Reset</a></label>
+            <label for="checkbox-2" style="color: black;">Forgot your password? <a style="text-decoration: none;" href="forgetpass">Reset</a></label>
           </fieldset> 
           
           <button style="width: 100%;" class="bttn-dark bzbz btn btn--primary" type="submit">Login</button>
