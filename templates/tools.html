@@ -29,23 +29,26 @@
 
   <!-- Sidenav -->
   <div style="background-color: #b81d18;" class="sidenav">
+
     <div class="profile">
       <img style="visibility: hidden;" src="#" alt="" width="100" height="100"><br>
-      {% if profile.image %}
-          <img src="{{ user.profile.image.url }}" alt="Profile Picture" width="100" height="100">
-      {% else %}
-          <img src="{% static "img/default.png" %}" alt="Default Profile Picture" width="100" height="100">
-      {% endif %}
-
-
-      <div style="color: white;" class="name">
-        MENU
-      </div>
-      <span></span>
-      {% if user.is_authenticated %}
-        <p style="color: white;" class="name">User:  {{ user.username }}</p>
-      {% endif %}
+    {% if profile.image %}
+        <img src="{{ profile.image.url }}" alt="Profile Picture" width="100" height="100" class="profile-picture">
+    {% else %}
+        <img src="{% static "img/default.png" %}" alt="Default Profile Picture" width="100" height="100" class="profile-picture">
+    {% endif %}
+    
+  </div>
+  <div class="profile2">
+    <div style="color: white;" class="name">
+      MENU
     </div>
+
+    <span></span>
+    {% if user.is_authenticated %}
+      <p style="color: white;" class="name">User: {{ user.username }}</p>
+    {% endif %}
+  </div>
 
     <div class="sidenav-url">
       
@@ -61,10 +64,7 @@
 
       
 
-      <div class="url">
-        <a href="./settings">Setting</a>
-        <hr align="center">
-      </div>
+      
 
     </div>
   </div>
@@ -76,7 +76,7 @@
     <div class="row">
       <div class="col-12">
         <div class="title-heading">
-          CAC Developer Tools
+          Tools
         </div>
       </div>
     </div>
@@ -84,123 +84,95 @@
 
     <div class="row">
         
-      <a href="camera" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">CAMERA</h4>
-            <div class="card-image" style="color: white">
-              <i class="fas fa-camera fa-5x"></i>
-            </div>
-            <p class="card-text ">Check Your Webcam Using CAC Camera.</p>
+      <a href="camera" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">CAMERA</h4>
+          <div class="card-image" style="color: white">
+            <i class="fas fa-camera fa-5x"></i>
           </div>
+          <p class="card-text">Check Your Webcam Using CAC Camera.</p>
         </div>
       </a>
 
-      <a href="internetspeedtest" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">INTERNET SPEED</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-wifi fa-5x"></i>
-            </div>
-            <p class="card-text ">Check Your Internet Speed Using CAC Internet Speed Test.</p>
+      <a href="internetspeedtest" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">INTERNET SPEED</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-wifi fa-5x"></i>
           </div>
+          <p class="card-text">Check Your Internet Speed Using CAC Internet Speed Test.</p>
+        </div>
+      </a>
+      
+
+
+      <a href="passwordgenerator" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">PASS GENERATOR</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-key fa-5x"></i>
+          </div>
+          <p class="card-text">Generate Secure Random Password For Your Accounts.</p>
         </div>
       </a>
 
-      <a href="passwordgenerator" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">PASS GENERATOR</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-key fa-5x"></i>
-            </div>
-            <p class="card-text ">Generate Secure Random Password For Your Accounts.</p>
+      <a href="notepad" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">NOTEPAD</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-file-text fa-5x"></i>
           </div>
+          <p class="card-text">Write And Custumise Your Notes Using CAC Notepad.</p>
         </div>
       </a>
 
-      <a href="calculator" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">CALCULATOR</h4>
-            <div class="card-image" style="color:  white;">
-              <i class="fas fa-calculator fa-5x"></i>
-            </div>
-            <p class="card-text ">Solve Your Equations And Formulas Using CAC Ip Finder.</p>
+      <a href="myip" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">MY IP ADDRESS</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-podcast fa-5x"></i>
           </div>
+          <p class="card-text">Lookup Your Current IP Address Using CAC IP Finder.</p>
         </div>
       </a>
 
-      <a href="notepad" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">NOTEPAD</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-file-text fa-5x"></i>
-            </div>
-            <p class="card-text ">Write And Custumise Your Notes Using CAC Notepad.</p>
+      <a href="colorpicker" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">COLOR PICKER</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-palette fa-5x"></i>
           </div>
+          <p class="card-text">Pick any color and get its code Using CAC color picker.</p>
         </div>
       </a>
 
-      <a href="myip" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">MY IP ADDRESS</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-podcast fa-5x"></i>
-            </div>
-            <p class="card-text ">Lookup Your Current Ip Address Using CAC Ip Finder.</p>
+      <a href="googlemap" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">MINI MAP</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-map fa-5x"></i>
           </div>
+          <p class="card-text">Search and explore on the map using our Google mini map.</p>
         </div>
       </a>
 
-      <a href="colorpicker" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">COLOR PICKER</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-palette fa-5x"></i>
-            </div>
-            <p class="card-text ">Pick any color and get it's code Using CAC color picker.</p>
+      <a href="loremgenerator" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">LOR GENERATOR</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-pencil-square-o  fa-5x"></i>
           </div>
+          <p class="card-text">Generate and use lorem ipsum as much as you want.</p>
         </div>
       </a>
 
-      <a href="googlemap" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">MINI MAP</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-map fa-5x"></i>
-            </div>
-            <p class="card-text ">Search and explore on map using our google mini map.</p>
+      <a href="paint" class="card tools-border-color">
+        <div class="card-body">
+          <h4 class="card-title">PAINT</h4>
+          <div class="card-image" style="color: white;">
+            <i class="fas fa-paint-brush fa-5x"></i>
           </div>
-        </div>
-      </a>
-
-      <a href="loremgenerator" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">LOR GENERATOR</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-pencil-square-o  fa-5x"></i>
-            </div>
-            <p class="card-text ">Generate and use lorem ipsum as much as you want.</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="paint" class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
-        <div class="card tools-border-color">
-          <div class="card-body">
-            <h4 class="card-title">PAINT</h4>
-            <div class="card-image" style="color: white;">
-              <i class="fas fa-paint-brush fa-5x"></i>
-            </div>
-            <p class="card-text ">Draw And Save Your Painting Using CAC Paint.</p>
-          </div>
+          <p class="card-text">Draw And Save Your Painting Using CAC Paint.</p>
         </div>
       </a>
 
@@ -223,7 +195,10 @@ body {
   font-family: Arial;
   background-color: rgb(28, 28, 28);
 }
-
+.card {
+  width: 40%;
+  margin-bottom: 20px; /* Adjust spacing between cards as needed */
+}
 .row:hover {
   text-decoration: none;
 }
@@ -280,10 +255,23 @@ top: 0px;
 width: 250px;
 }
 
+.profile2 {
+  margin-bottom: 20px;
+  margin-top: -12px;
+  text-align: center;
+}
+.propho{
+  margin-bottom: 100px;
+}
 .profile {
-margin-bottom: 20px;
+margin-bottom: 130px;
 margin-top: -12px;
 text-align: center;
+width: 100px; /* Set the desired width */
+height: 100px; /* Set the desired height */
+display: inline-block;
+margin-left: 75px;
+
 }
 
 .name {
@@ -399,6 +387,11 @@ color: white;
   text-decoration: none;
   color: white !important;
   transition: 0.3s;
+}
+.profile-picture {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  object-fit: cover; /* Cover the container without distortion */
 }
 
 </style>
