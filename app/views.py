@@ -27,7 +27,8 @@ def blog(request):
 
 def loremgenerator(request): 
     return render(request, 'loremgenerator.html') 
-
+def mario(request): 
+    return render(request, 'mario.html')
 def paint(request): 
     return render(request, 'paint.html')
 def contact(request): 

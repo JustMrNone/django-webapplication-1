@@ -43,4 +43,5 @@ urlpatterns = [
     path('change_password', views.change_password, name="change_password"),
     path('loremgenerator', views.loremgenerator, name='loremgenerator'),
     path('paint', views.paint, name="paint"),
+    path('mario', views.mario, name="mario"),
 ]
