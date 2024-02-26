@@ -60,7 +60,6 @@ def password(request):
     try:
         profile = Profile.objects.get(user=request.user)
     except Profile.DoesNotExist:
-        # If Profile doesn't exist, create a new one it is used for admin and I am him so wasup?
         profile = Profile.objects.create(user=request.user, bio='', image='')  # Adjust bio and image as needed
     return render(request, 'password.html', {'profile': profile})
 
@@ -112,8 +111,7 @@ def profile(request):
     try:
         profile = Profile.objects.get(user=request.user)
     except Profile.DoesNotExist:
-        # If Profile doesn't exist, create a new one it is used for admin and I am him so wasup?
-        profile = Profile.objects.create(user=request.user, bio='', image='')  # Adjust bio and image as needed
+        profile = Profile.objects.create(user=request.user, bio='', image='')
     return render(request, 'profile.html', {'profile': profile})
 
 @login_required()
@@ -133,8 +131,8 @@ def tools(request):
     try:
         profile = Profile.objects.get(user=request.user)
     except Profile.DoesNotExist:
-        # If Profile doesn't exist, create a new one it is used for admin and I am him so wasup?
-        profile = Profile.objects.create(user=request.user, bio='', image='')  # Adjust bio and image as needed
+        
+        profile = Profile.objects.create(user=request.user, bio='', image='')
     return render(request, 'tools.html', {'profile': profile})
 
 
@@ -147,8 +145,7 @@ def settings(request):
     try:
         profile = Profile.objects.get(user=request.user)
     except Profile.DoesNotExist:
-        # If Profile doesn't exist, create a new one it is used for admin and I am him so wasup?
-        profile = Profile.objects.create(user=request.user, bio='', image='')  # Adjust bio and image as needed
+        profile = Profile.objects.create(user=request.user, bio='', image='')
     return render(request, 'settings.html', {'profile': profile})
 
 def home(request):
@@ -180,7 +177,6 @@ def change_password(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            # Update the user's session to reflect the password change
             update_session_auth_hash(request, user)
             messages.success(request, 'Your password was successfully updated!')
             return redirect('profile')  # Redirect to the user's profile page after password change
@@ -312,5 +308,4 @@ def logout(request):
 
 
 
-#mrnone wrote this 
-#django be acting like a miaatch 
+#kamyar wrote this
